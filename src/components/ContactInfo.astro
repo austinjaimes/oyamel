@@ -1,0 +1,126 @@
+<style>
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: normal;
+  }
+    section {
+        margin-top: 100px;
+        height: 90vh;
+    }
+    button {
+        width: 400px;
+        border-radius: 10px;
+        background-color: var(--rojo-alegre);
+    }
+    @media (max-width: 768px) {
+  h2 {
+    font-size: 34px;
+    text-align: end;
+  }
+  p {
+    font-size: 14px;
+  }
+  button {
+    width: 200px;
+  }
+}
+</style>
+<section class="relative bg-cover bg-center h-72 md:h-96 fade-in opacity-0 translate-y-6 transition-all duration-700 ease-out" style="background-image: url('https://us.123rf.com/450wm/benzoix/benzoix2212/benzoix221215001/195810752-mujer-joven-con-anteojos-que-muestra-la-pantalla-de-una-computadora-port%C3%A1til-demostrando-promoci%C3%B3n.jpg?ver=6');">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-end px-12 gap-y-10">
+        <h2 class="text-5xl">Centro de contacto Oyamel</h2>
+        <p class="text-2xl max-w-2xl text-right">Contamos con diversos canales de contacto para que puedas resolver todas tus dudas o comenzar tu inscripción de manera sencilla.</p>
+        <button class="py-2 px-4 rounded hover:bg-white">Contactanos</button>
+    </div>
+</section>
+
+  
+<style is:global>
+  .line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.9s ease-out,
+    transform 0.9s ease-out;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+<script is:inline>
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".fade-in");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 },
+  );
+
+  elements.forEach((el) => observer.observe(el));
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const stats = document.querySelectorAll(".fade-in");
+
+  const animateCount = (el) => {
+    const target = +el.dataset.target;
+    let current = 0;
+    const speed = target < 100 ? 50 : 10;
+
+    const update = () => {
+      const increment = Math.ceil(target / speed);
+      current += increment;
+      console.log(current, target);
+      if (current >= target) {
+        if (target == 100) {
+          el.textContent = `${target}%`;
+        } else {
+          el.textContent = `${target}+`;
+        }
+      } else {
+        el.textContent = `${current}+`;
+        requestAnimationFrame(update);
+      }
+    };
+
+    update();
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove("opacity-0", "translate-y-6");
+        entry.target.classList.add("opacity-100", "translate-y-0");
+
+        const numberEl = entry.target.querySelector(".stat");
+        if (numberEl && !numberEl.dataset.animated) {
+          animateCount(numberEl);
+          numberEl.dataset.animated = true;
+        }
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2,
+  });
+
+  stats.forEach((stat) => observer.observe(stat));
+});
+</script>
