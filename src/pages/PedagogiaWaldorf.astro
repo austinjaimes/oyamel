@@ -1,0 +1,27 @@
+---
+import '../assets/global.css';
+import Header from '../components/Header.astro';
+import ImageTitle from '../components/ImageTitle.astro';
+import InfoPedagogiaWaldorf from '../components/InfoPedagogiaWaldorf.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedagogía Waldorf</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <Header />
+    <ImageTitle imageUrl="https://www.coldelvalle.edu.mx/wp-content/uploads/2021/11/7-Que-se-aprende-en-la-escuela-primaria-min-min.jpg"
+  title="Pedagogía Waldorf" />
+    <InfoPedagogiaWaldorf />
+    <Footer />
+</body>
+</html>

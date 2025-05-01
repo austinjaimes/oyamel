@@ -1,0 +1,236 @@
+<style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    a { text-decoration: none; color: inherit; }
+    html, body {
+  overflow-x: hidden;
+  width: 100%;
+  } 
+    body {
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100px;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+  
+    .nav-container {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
+    }
+  
+    .logo img {
+      height: 80px;
+    }
+  
+    nav {
+      display: none;
+      margin-left: 8rem;
+    }
+  
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      font-weight: bold;
+      font-size: .7rem;
+      position: relative;
+    }
+  
+    nav li {
+      position: relative;
+    }
+  
+    nav li:hover > ul {
+      display: flex;
+    }
+  
+    nav ul ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--verde-apagado);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 999;
+      width: 220px;
+    }
+  
+    nav ul ul li {
+      padding: 0.5rem 0;
+    }
+  
+    nav a:hover {
+      color: #2563eb; /* azul */
+    }
+  
+    .menu-btn {
+      font-size: 2rem;
+      font-weight: bold;
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      right: 3.5rem;
+    top: 1.5rem;
+    z-index: 60;
+      display: block;
+    }
+  
+    /* MOBILE MENU */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: var(--verde-apagado);
+      backdrop-filter: blur(10px);
+      font-size: 1.125rem;
+      padding: 1rem 1.5rem;
+      gap: 1rem;
+      max-height: 0;
+      overflow-y: auto;
+      transition: max-height 0.3s ease-in-out;
+      z-index: 40;
+    }
+  
+    .mobile-menu.show {
+      display: flex;
+      flex-direction: column;
+      max-height: 500px;
+    }
+    @media (min-width: 768px) {
+    nav {
+      display: none;
+      margin-left: 0; /* Esto evita que empuje los botones */
+      gap: 1.25rem; /* antes era 2rem */
+      font-size: 0.95rem; /* antes era 1.05rem */
+  
+    }
+  
+    nav ul {
+      flex-wrap: wrap;
+      gap: 2.5rem; /* un poco más cómodo */
+    }
+  }
+    /* Desktop view */
+    @media (min-width: 1024px) {
+      .menu-btn { display: none; }
+      nav { display: block; }
+      .mobile-menu { display: none; }
+    }
+</style>
+
+<header>
+    <div class="nav-container">
+      <a href="/" class="logo"><img src="/logo2.png" alt="Logo"></a>
+  
+      <!-- Navegación escritorio -->
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Nuestra Escuela</a>
+            <ul>
+              <li><a href="/QuienesSomos">¿Quiénes somos?</a></li>
+              <li><a href="/Historia">Historia</a></li>
+              <li><a href="/MisionVision">Misión y visión</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/">Propuesta Educativa</a>
+            <ul>
+              <li><a href="/JardinInfancia">Jardín de Infancia Semilla de Oyamel</a></li>
+              <li><a href="/Primaria">Primaria Colegio Oyamel</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/">Pedagogía y beneficios</a>
+            <ul>
+              <li><a href="/PedagogiaWaldorf">Pedagogía Waldorf</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#comunidad">Comunidad</a>
+            <ul>
+              <li><a href="/ImportanciaFestivales">La Importancia de los Festivales Estacionales en Nuestra Comunidad</a></li>
+              <li><a href="/EscuelaParaPadres">Escuela para padres</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/Instalaciones">Instalaciones</a>
+          </li>
+          <li>
+            <a href="/Inscripciones">Inscripciones</a>
+          </li>
+          <li>
+            <a href="/GestionFinancieraSostenible">Gestión financiera sostenible</a>
+          </li>
+          <li><a href="/Contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" id="menu-btn">☰</button>
+    </div>
+  
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="mobile-menu">
+      <a class="font-bold" href="/">Nuestra Escuela</a>
+      <a href="/QuienesSomos">- ¿Quiénes somos?</a>
+      <a href="/Historia">- Historia</a>
+      <a href="/MisionVision">- Misión y visión</a>
+
+      <a class="font-bold" href="/">Propuesta Educativa</a>
+      <a href="/JardinInfancia">- Jardín de Infancia Semilla de Oyamel</a>
+      <a href="/Primaria">- Primaria Colegio Oyamel</a>
+
+      <a class="font-bold" href="/">Pedagogía y beneficios</a>
+      <a href="/PedagogiaWaldorf">-Pedagogía Waldorf</a>
+
+      <a class="font-bold" href="#comunidad">Comunidad</a>
+      <a href="/ImportanciaFestivales">-La Importancia de los Festivales Estacionales en Nuestra Comunidad</a>
+      <a href="/EscuelaParaPadres">-Escuela para padres</a>
+
+      <a class="font-bold" href="/Instalaciones">Instalaciones</a>
+      <a class="font-bold" href="/Inscripciones">Inscripciones</a>
+      <a class="font-bold" href="/GestionFinancieraSostenible">Gestión financiera sostenible</a>
+      <a class="font-bold" href="/Contacto">Contacto</a>
+      <a href=""></a>
+      <a href=""></a>
+      <a href=""></a>
+      <a href=""></a>
+      <a href=""></a>
+    </div>
+  </header>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+  
+    let index = 0;
+  
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("show");
+    });
+  </script>

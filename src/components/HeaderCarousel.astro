@@ -1,0 +1,396 @@
+<style>
+  /* Reset básico */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  a { text-decoration: none; color: inherit; }
+  html, body {
+overflow-x: hidden;
+width: 100%;
+} 
+  body {
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .nav-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .logo img {
+    height: 80px;
+  }
+
+  nav {
+    display: none;
+    margin-left: 8rem;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    font-weight: bold;
+    font-size: .7rem;
+    position: relative;
+  }
+
+  nav li {
+    position: relative;
+  }
+
+  nav li:hover > ul {
+    display: flex;
+  }
+
+  nav ul ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--verde-apagado);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 999;
+    width: 220px;
+  }
+
+  nav ul ul li {
+    padding: 0.5rem 0;
+  }
+
+  nav a:hover {
+    color: #2563eb; /* azul */
+  }
+
+  .menu-btn {
+    font-size: 2rem;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 3.5rem;
+  top: 1.5rem;
+  z-index: 60;
+    display: block;
+  }
+
+  /* MOBILE MENU */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: var(--verde-apagado);
+    backdrop-filter: blur(10px);
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+    max-height: 0;
+    overflow-y: auto;
+    transition: max-height 0.3s ease-in-out;
+    z-index: 100;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+  }
+  @media (min-width: 768px) {
+  nav {
+    display: none;
+    margin-left: 0; /* Esto evita que empuje los botones */
+    gap: 1.25rem; /* antes era 2rem */
+    font-size: 0.95rem; /* antes era 1.05rem */
+
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    gap: 2.5rem; /* un poco más cómodo */
+  }
+}
+  /* Desktop view */
+  @media (min-width: 1024px) {
+    .menu-btn { display: none; }
+    nav { display: block; }
+    .mobile-menu { display: none; }
+  }
+
+  /* Carousel */
+  #carousel {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+  }
+
+  #carousel-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  #carousel-track > div {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  #carousel-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(60%);
+  }
+
+  .carousel-caption {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    max-width: 90%;
+    margin: 0 auto;
+    word-wrap: break-word;
+  }
+  
+
+  .carousel-caption h2 {
+    width: 80%;
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .carousel-caption p {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .carousel-caption button {
+    background-color: var(--rojo-alegre);
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    width: 300px;
+  }
+
+  .carousel-caption button:hover {
+    background-color: #e5e5e5;
+  }
+
+  @media (max-width: 768px) {
+.carousel-caption h2 {
+  font-size: 1.8rem;
+}
+.carousel-caption p {
+  font-size: 1rem;
+}
+.carousel-caption button {
+  width: 180px;
+  font-size: 0.9rem;
+}
+}
+
+  #prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    z-index: 60;
+  }
+
+  #prev:hover, #next:hover {
+    color: #ccc;
+  }
+
+  #prev { left: 1rem; }
+  #next { right: 1rem; }
+</style>
+
+  
+  <header>
+    <div class="nav-container">
+      <a href="/" class="logo"><img src="/logo2.png" alt="Logo"></a>
+  
+      <!-- Navegación escritorio -->
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Nuestra Escuela</a>
+            <ul>
+              <li><a href="/QuienesSomos">¿Quiénes somos?</a></li>
+              <li><a href="/Historia">Historia</a></li>
+              <li><a href="/MisionVision">Misión y visión</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/">Propuesta Educativa</a>
+            <ul>
+              <li><a href="/JardinInfancia">Jardín de Infancia Semilla de Oyamel</a></li>
+              <li><a href="/Primaria">Primaria Colegio Oyamel</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/">Pedagogía y beneficios</a>
+            <ul>
+              <li><a href="/PedagogiaWaldorf">Pedagogía Waldorf</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#comunidad">Comunidad</a>
+            <ul>
+              <li><a href="/ImportanciaFestivales">La Importancia de los Festivales Estacionales en Nuestra Comunidad</a></li>
+              <li><a href="/EscuelaParaPadres">Escuela para padres</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/Instalaciones">Instalaciones</a>
+          </li>
+          <li>
+            <a href="/Inscripciones">Inscripciones</a>
+          </li>
+          <li>
+            <a href="/GestionFinancieraSostenible">Gestión financiera sostenible</a>
+          </li>
+          <li><a href="/Contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" id="menu-btn">☰</button>
+    </div>
+  
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="mobile-menu">
+      <a class="font-bold" href="/">Nuestra Escuela</a>
+      <a href="/QuienesSomos">- ¿Quiénes somos?</a>
+      <a href="/Historia">- Historia</a>
+      <a href="/MisionVision">- Misión y visión</a>
+
+      <a class="font-bold" href="/">Propuesta Educativa</a>
+      <a href="/JardinInfancia">- Jardín de Infancia Semilla de Oyamel</a>
+      <a href="/Primaria">- Primaria Colegio Oyamel</a>
+
+      <a class="font-bold" href="/">Pedagogía y beneficios</a>
+      <a href="/PedagogiaWaldorf">-Pedagogía Waldorf</a>
+
+      <a class="font-bold" href="#comunidad">Comunidad</a>
+      <a href="/ImportanciaFestivales">-La Importancia de los Festivales Estacionales en Nuestra Comunidad</a>
+      <a href="/EscuelaParaPadres">-Escuela para padres</a>
+
+      <a class="font-bold" href="/Instalaciones">Instalaciones</a>
+      <a class="font-bold" href="/Inscripciones">Inscripciones</a>
+      <a class="font-bold" href="/GestionFinancieraSostenible">Gestión financiera sostenible</a>
+      <a class="font-bold" href="/Contacto">Contacto</a>
+      <a href=""></a>
+      <a href=""></a>
+      <a href=""></a>
+      <a href=""></a>
+      <a href=""></a>
+    </div>
+  </header>
+  
+  <!-- Carrusel -->
+  <section id="gallery">
+    <div id="carousel">
+      <div id="carousel-track">
+        <div>
+          <img src="/imgcar-1.jpeg" alt="Primera imagen">
+          <div class="carousel-caption">
+            <h2 class="text-white">Plática informativa</h2>
+            <p class="text-white">¡Ven a conocer el colegio!</p>
+            <button class="text-white">Aparta tu lugar</button>
+          </div>
+        </div>
+        <div>
+          <img src="/imgcar-2.jpeg" alt="Segunda imagen">
+          <div class="carousel-caption">
+            <h2 class="text-white">Aprender con el corazón, la mente y las manos</h2>
+            <p class="text-white">Fomentamos un aprendizaje integral.</p>
+            <button class="text-white">Ver más</button>
+          </div>
+        </div>
+        <div>
+          <img src="/imgcar-4.jpeg" alt="Tercera imagen">
+          <div class="carousel-caption">
+            <h2 class="text-white">Una comunidad que educa con amor</h2>
+            <p class="text-white">Somos más que una escuela, somos familia.</p>
+            <button class="text-white">Ver más</button>
+          </div>
+        </div>
+      </div>
+  
+      <div id="prev">❮</div>
+      <div id="next">❯</div>
+    </div>
+  </section>
+  
+  <script>
+    const track = document.getElementById('carousel-track');
+    const slides = document.querySelectorAll('#carousel-track > div');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+  
+    let index = 0;
+  
+    function updateSlidePosition() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+  
+    prev.addEventListener('click', () => {
+      index = (index - 1 + slides.length) % slides.length;
+      updateSlidePosition();
+    });
+  
+    next.addEventListener('click', () => {
+      index = (index + 1) % slides.length;
+      updateSlidePosition();
+    });
+  
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      updateSlidePosition();
+    }, 10000);
+  
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("show");
+    });
+  </script>
+  
