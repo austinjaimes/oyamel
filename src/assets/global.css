@@ -18,6 +18,14 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--texto-principal);
 }
 
+h3 {
+  font-size: 28px !important;
+}
+
+h4 {
+  font-size: 22px !important;
+}
+
 li > a {
   font-size: 11px !important;
 }
