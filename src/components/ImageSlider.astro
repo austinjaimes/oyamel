@@ -1,0 +1,18 @@
+<div class="mb-12 max-w-5xl mx-auto overflow-hidden rounded-xl shadow-lg relative" style="height: 500px;">
+  <div id="carousel2" class="flex w-[400%] h-full transition-transform duration-700 ease-in-out">
+    <img src="/images/CONTACTO OYAMEL 1.jpg" alt="Slide 1" class="w-full h-full object-cover flex-shrink-0" />
+    <img src="/images/CONTACTO OYAMEL 2.jpg" alt="Slide 2" class="w-full h-full object-cover flex-shrink-0" />
+    <img src="/images/CONTACTO OYAMEL 3.jpg" alt="Slide 3" class="w-full h-full object-cover flex-shrink-0" />
+    <img src="/images/CONTACTO OYAMEL 4.jpg" alt="Slide 4" class="w-full h-full object-cover flex-shrink-0" />
+  </div>
+</div>
+
+<script>
+  let index2 = 0;
+  const carousel2 = document.getElementById('carousel2');
+  const totalSlides = 4;
+  setInterval(() => {
+    index2 = (index2 + 1) % totalSlides;
+    carousel2.style.transform = `translateX(-${index2 * 100}%)`;
+  }, 3000);
+</script>
