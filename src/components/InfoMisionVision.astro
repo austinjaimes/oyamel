@@ -1,21 +1,71 @@
 <style>
-    h1, h2, h3, h4, h5, h6 {
-    font-family: "Comic Neue", cursive;
-    font-weight: 700;
-    font-style: normal;
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Comic Neue", cursive;
+        font-weight: 700;
+        font-style: normal;
+    }
+    .video1 {
+        background-color: var(--rojo-alegre);
+    }
+    @media (max-width: 700px) {
+        .testimonios-title {
+            font-size: 1.5rem; /* Texto más pequeño */
+            padding-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonios-video {
+            width: 100% !important; /* Ocupar el ancho disponible */
+            height: 250px !important; /* Altura menor para dispositivos móviles */
+        }
+    }
 </style>
 <section>
     <div class="flex flex-col p-20 justify-center items-center gap-y-10">
         <div>
             <h2 class="text-4xl text-start mb-8">Misión</h2>
-        <p class="max-w-2xl mb-8">Nuestro propósito es brindar a niños y niñas un espacio de desarrollo respetuoso, en el que crezca con ellos su interés por el aprendizaje, el cuidado de sí mismos, del medio ambiente y la sociedad en que vivimos.
-        </p>
+            <p class="max-w-2xl mb-8">
+                Nuestro propósito es brindar a niños y niñas un espacio de
+                desarrollo respetuoso, en el que crezca con ellos su interés por
+                el aprendizaje, el cuidado de sí mismos, del medio ambiente y la
+                sociedad en que vivimos.
+            </p>
         </div>
         <div>
             <h2 class="text-4xl text-start mb-8">Visión</h2>
-        <p class="max-w-2xl mb-8">Fortalecer nuestra comunidad y ser reconocidos como una opción educativa que atiende las necesidades de la infancia en la realidad social en que vivimos, siendo agentes de cambio por el bien común y la creación de un entorno sostenible de forma ambiental, económica y social. 
-        </p>
+            <p class="max-w-2xl mb-8">
+                Fortalecer nuestra comunidad y ser reconocidos como una opción
+                educativa que atiende las necesidades de la infancia en la
+                realidad social en que vivimos, siendo agentes de cambio por el
+                bien común y la creación de un entorno sostenible de forma
+                ambiental, económica y social.
+            </p>
         </div>
+    </div>
+</section>
+<section
+    class="video1 w-full h-full py-20 text-center px-4 fade-in translate-y-6 transition-all duration-700 ease-out"
+>
+    <h2 class="text-4xl mb-20 pt-10 testimonios-title">
+        Video 100 años Educación Waldorf
+    </h2>
+
+    <div
+        class="max-w-1xl mx-auto aspect-w-16 aspect-h-9 mb-50 flex flex-col justify-center items-center"
+    >
+        <iframe
+            class="rounded-xl shadow-lg testimonios-video"
+            style="width: 90%; height: 600px;"
+            src="https://www.youtube.com/embed/7pUj9TGtNAk?si=yc_gz1wIncj4zuxw"
+            title="100 años Educación Waldorf"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
     </div>
 </section>
