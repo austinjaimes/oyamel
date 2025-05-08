@@ -1,54 +1,119 @@
 <style>
-    h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: "Comic Neue", cursive;
     font-weight: 700;
     font-style: normal;
   }
 
   .bg-1 {
-    background-color: #FFCA70;
+    background-color: #ffca70;
+  }
+  .parallax-image {
+    background-image: url('/images/festivales-nutren.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
   }
 </style>
 <section class="bg-white text-gray-800 py-16 px-4">
-    <!-- Título centrado -->
-    <div class="text-center max-w-4xl mx-auto mb-12">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4">Festivales que nutren el alma</h2>
-      <p class="text-lg md:text-xl text-gray-600">
-        En el Colegio Oyamel, los festivales o celebraciones, son el corazón de nuestra comunidad.
-      </p>
+  <!-- Título centrado -->
+  <div class="text-center max-w-4xl mx-auto mb-12">
+    <h2 class="text-3xl md:text-5xl font-bold mb-4">
+      Festivales que nutren el alma
+    </h2>
+    <p class="text-lg md:text-xl text-gray-600">
+      En el Colegio Oyamel, los festivales o celebraciones, son el corazón de
+      nuestra comunidad.
+    </p>
+  </div>
+
+  <!-- Imagen destacada -->
+  <!-- <div class="mb-12">
+      <img src="/images/festivales-nutren.jpg" alt="Festival en Colegio Oyamel" class="w-full h-[200] object-cover object-center rounded-lg shadow-md" 
+      style="height: 400px; "/>
+    </div> -->
+
+  <!-- <div class="parallax-image rounded-lg shadow-md mb-12"></div> -->
+
+    <!-- Imagen central -->
+    <div
+    class="mb-12 max-w-5xl mx-auto overflow-hidden rounded-xl shadow-lg max-h-[450px] relative"
+  >
+    <div
+      id="carousel2"
+      class="flex transition-transform duration-700 ease-in-out w-[300%]"
+    >
+      <img
+        src="/images/festivales-nutren.jpg"
+        alt="Slide 1"
+        class="w-full object-cover flex-shrink-0 max-h-[450px]"
+      />
+      <!-- <img
+        src="/images/COMUNIDAD PADRES 2.jpg"
+        alt="Slide 2"
+        class="w-full object-cover flex-shrink-0 max-h-[450px]"
+      />
+      <img
+        src="/images/COMUNIDAD PADRES 3.jpg"
+        alt="Slide 3"
+        class="w-full object-cover flex-shrink-0 max-h-[450px]"
+      /> -->
     </div>
-  
-    <!-- Imagen destacada -->
-    <div class="mb-12">
-      <img src="/images/festivales-nutren.jpg" alt="Festival en Colegio Oyamel" class="w-full max-h-[500px] object-cover rounded-lg shadow-md" />
-    </div>
-  
-    <!-- Texto narrativo -->
-    <div class="max-w-5xl mx-auto space-y-8 text-justify text-gray-700 text-lg leading-relaxed">
-      <p>
-        Arraigadas en los ritmos de la naturaleza, estas tradiciones fomentan un profundo sentido de pertenencia, fortalecen las relaciones y brindan a los niños una base para su identidad y conciencia cultural.
-      </p>
-      <p>
-        Al marcar el cambio de estaciones a través de rituales significativos como caminatas con faroles, festivales de verano y celebraciones de la cosecha, cultivamos la  gratitud, asombro y una conexión con el mundo natural. 
-      </p>
-      <p>
-        También honramos celebraciones culturales como el <strong>Día de los Muertos</strong>, que invita al recuerdo y la reflexión, profundizando nuestra comprensión de los ciclos de la vida y la sabiduría transmitida a lo largo de las generaciones.
-      </p>
-      <p>
-        Estas experiencias compartidas reúnen a estudiantes, familias y maestros, creando recuerdos duraderos y fomentando un espíritu de unión.
-      </p>
-      <p>
-        Para los niños, estas celebraciones ofrecen ritmo y continuidad, proporcionando una sensación de seguridad y autoconciencia, al mismo tiempo que los introduce a diversas tradiciones que los conectan con la cultura mundial el mundo más amplio. 
-      </p>
-      <p>
-        A través de la <strong>música</strong>, los <strong>cuentos</strong> y los <strong>rituales compartidos</strong>, nuestros festivales infunden belleza, alegría y significado en la vida escolar, convirtiéndolos en una parte esencial de nuestra identidad.
-      </p>
-    </div>
-  
-    <!-- Cita visual o llamada emocional -->
-    <div class="mt-16 p-8 rounded-lg shadow-md max-w-4xl mx-auto text-center bg-1 text-white">
-      <p class="text-xl italic font-medium">
-        “Celebrar juntos fortalece el alma de nuestra escuela. Cada festival es una semilla de amor, belleza y conexión.”
-      </p>
-    </div>
-  </section>
+  </div>
+
+  <!-- Texto narrativo -->
+  <div
+    class="max-w-5xl mx-auto space-y-8 text-justify text-gray-700 text-lg leading-relaxed"
+  >
+    <p>
+      Arraigadas en los ritmos de la naturaleza, estas tradiciones fomentan un
+      profundo sentido de pertenencia, fortalecen las relaciones y brindan a los
+      niños una base para su identidad y conciencia cultural.
+    </p>
+    <p>
+      Al marcar el cambio de estaciones a través de rituales significativos como
+      caminatas con faroles, festivales de verano y celebraciones de la cosecha,
+      cultivamos la gratitud, asombro y una conexión con el mundo natural.
+    </p>
+    <p>
+      También honramos celebraciones culturales como el <strong
+        >Día de los Muertos</strong
+      >, que invita al recuerdo y la reflexión, profundizando nuestra
+      comprensión de los ciclos de la vida y la sabiduría transmitida a lo largo
+      de las generaciones.
+    </p>
+    <p>
+      Estas experiencias compartidas reúnen a estudiantes, familias y maestros,
+      creando recuerdos duraderos y fomentando un espíritu de unión.
+    </p>
+    <p>
+      Para los niños, estas celebraciones ofrecen ritmo y continuidad,
+      proporcionando una sensación de seguridad y autoconciencia, al mismo
+      tiempo que los introduce a diversas tradiciones que los conectan con la
+      cultura mundial el mundo más amplio.
+    </p>
+    <p>
+      A través de la <strong>música</strong>, los <strong>cuentos</strong> y los
+      <strong>rituales compartidos</strong>, nuestros festivales infunden
+      belleza, alegría y significado en la vida escolar, convirtiéndolos en una
+      parte esencial de nuestra identidad.
+    </p>
+  </div>
+
+  <!-- Cita visual o llamada emocional -->
+  <div
+    class="mt-16 p-8 rounded-lg shadow-md max-w-4xl mx-auto text-center bg-1 text-white"
+  >
+    <p class="text-xl italic font-medium">
+      “Celebrar juntos fortalece el alma de nuestra escuela. 
+      <br>Cada festival es una semilla de amor, belleza y conexión.”
+    </p>
+  </div>
+</section>
